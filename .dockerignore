@@ -9,3 +9,5 @@
 /tmp
 /recycle
 /plugins
+.venv
+venv
