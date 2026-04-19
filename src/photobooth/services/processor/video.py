@@ -1,4 +1,5 @@
 import logging
+import shutil
 from pathlib import Path
 from uuid import uuid4
 
@@ -63,7 +64,7 @@ class JobModelVideo(JobModelBase[VideoConfigurationSet]):
         original_filenamepath = Path(filename_str_time()).with_suffix(".mp4")
 
         # very first, move the capture_to_process to originals. if anything later fails, at least we got the file in safe place.
-        captured_original = capture_to_process.rename(Path(PATH_CAMERA_ORIGINAL, original_filenamepath))
+        captured_original = Path(shutil.move(capture_to_process, Path(PATH_CAMERA_ORIGINAL, original_filenamepath)))
 
         mediaitem = Mediaitem(
             id=uuid4(),

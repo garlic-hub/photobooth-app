@@ -1,4 +1,22 @@
-# ignore user folders
+# Version control & CI
+.git
+.github
+.gitignore
+
+# IDE / editor
+.vscode
+.idea
+
+# Python environments & caches
+.venv
+venv
+__pycache__
+*.pyc
+.ruff_cache
+.mypy_cache
+.pytest_cache
+
+# Runtime / user data (mounted as volumes at runtime)
 /config
 /cache
 /data
@@ -9,5 +27,16 @@
 /tmp
 /recycle
 /plugins
-.venv
-venv
+
+# Build artifacts & docs
+/Dockerfile
+/.dockerignore
+docker-compose.yml
+CONTRIBUTING.md
+FUNDING.yml
+LICENSE.md
+coverage.xml
+tests_tmp
+
+# Non-essential for build
+/src/tests

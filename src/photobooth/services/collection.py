@@ -107,7 +107,7 @@ class Files:
         if mediaitem.captured_original:
             if delete_to_recycle_dir:
                 logger.info(f"moving {mediaitem} to recycle directory")
-                mediaitem.captured_original.rename(Path(RECYCLE_PATH, mediaitem.unprocessed.name))
+                shutil.move(mediaitem.captured_original, Path(RECYCLE_PATH, mediaitem.unprocessed.name))
             else:
                 mediaitem.captured_original.unlink(missing_ok=True)
 

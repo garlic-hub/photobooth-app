@@ -1,4 +1,5 @@
 import logging
+import shutil
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -202,7 +203,7 @@ class JobModelBase(ABC, Generic[T]):
         original_filenamepath = Path(filename_str_time()).with_suffix(capture_to_process.suffix)
 
         # very first, move the capture_to_process to originals. if anything later fails, at least we got the file in safe place.
-        captured_original = capture_to_process.rename(Path(PATH_CAMERA_ORIGINAL, original_filenamepath))
+        captured_original = Path(shutil.move(capture_to_process, Path(PATH_CAMERA_ORIGINAL, original_filenamepath)))
 
         mediaitem = Mediaitem(
             id=uuid4(),
