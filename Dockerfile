@@ -6,9 +6,6 @@ WORKDIR /opt/photobooth-app
 # Enable bytecode compilation
 ENV UV_COMPILE_BYTECODE=1
 
-# Copy from the cache instead of linking since it's a mounted volume
-ENV UV_LINK_MODE=copy
-
 # Omit development dependencies
 ENV UV_NO_DEV=1
 
@@ -32,7 +29,6 @@ RUN apt-get update \
         libexif12 \
         libgl1 \
         libgphoto2-6 \
-        libgphoto2-dev \
         libgphoto2-port12 \
         libltdl7 \
         libturbojpeg0 \
